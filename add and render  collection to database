@@ -1,0 +1,18 @@
+db.collection("posts").add({
+            message: input,
+            timestamp: firebase.firestore.FieldValue.
+                serverTimestamp(),
+            profilePic: user.photoURL,
+            username: user.displayName,
+            image: imageUrl
+        })
+        
+        
+        
+        Render from database..
+        useEffect(() => {
+        db.collection("posts").orderBy("timestamp", "desc")
+            .onSnapshot((snapshot) =>
+                setPosts(snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() })))
+            );
+    }, []);
